@@ -1,3 +1,5 @@
+import { createRepositoriesItem } from "../services/repositoriesItem.js";
+
 const screen = {
     userProfile: document.querySelector('.profile-data'),
     renderUser(user){
@@ -12,11 +14,7 @@ const screen = {
                         </div>`
 
         let repositoriesItens = ''
-        user.repositories.forEach(repo => repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}<br><br>
-            <strong class="estatistics">🍴${repo.forks_count}</strong>
-            <strong class="estatistics">⭐${repo.stargazers_count}</strong>
-            <strong class="estatistics">👀${repo.watchers_count}</strong>
-            <strong class="estatistics">👨🏻‍💻${repo.language}</strong></a></li>`)
+        user.repositories.forEach(repo => repositoriesItens += createRepositoriesItem(repo))
         
         if(user.repositories.length > 0){
             this.userProfile.innerHTML += `<div class="repositories section">
