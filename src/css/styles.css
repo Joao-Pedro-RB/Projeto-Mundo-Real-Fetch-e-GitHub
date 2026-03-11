@@ -145,11 +145,18 @@ main {
 
 .container .profile-data .repositories ul li a:hover{
   background-color:#B39D85;
-  color: #fff
+  color: #fff;
+  padding: 20px;
 }
 
 .container .profile-data.hide{
   display: none;
+}
+
+.estatistics{
+  background-color: #6a59cd;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 @media (max-width: 1280px) {
@@ -174,6 +181,12 @@ main {
   .container header #btn-search
   {
     width: 100%;
+  }
+}
+
+@media (max-width:660px){
+  div .info{
+    flex-direction: column;
   }
 }
 

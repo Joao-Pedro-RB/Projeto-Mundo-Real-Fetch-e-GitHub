@@ -3,7 +3,6 @@ import { getRepositories } from './services/repositories.js';
 
 import { user } from './objects/user.js';
 import { screen } from './objects/screen.js';
-import { baseUrl } from './variables.js';
 
 //Envio pelo botão buscar
 
@@ -36,27 +35,17 @@ async function getUserData(userName) {
         return
     }
     const repositoriesResponse = await getRepositories(userName)
-
+    
     user.setInfo(userResponse)
     user.setRepositories(repositoriesResponse)
-
+    
     screen.renderUser(user)
 }
 
-//Validação 1
+//Validação 
 function validateEmptyInput(userName) {
     if (userName.length === 0) {
         alert('Preencha o campo com o nome do usuário do GitHub')
         return true
     }
 }
-
-function getFollows(userName) {
-    const response = fetch(`${baseUrl}/${userName}`).then(resposta => 
-        resposta.json()
-    ).then(json => console.log(json))
-}
-
-getFollows('Joao-Pedro-RB')
-
-//Pegando os follows = 
